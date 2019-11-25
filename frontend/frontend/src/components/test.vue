@@ -1,7 +1,7 @@
 <template>
   <div class="test">
     {{msg}}
-    <a href='/hihi'>누르자</a>
+    <router-link to="/hihi">누르기</router-link>
   </div>
 </template>
 
