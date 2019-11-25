@@ -2,6 +2,21 @@
   <div>
     <i class="fas fa-truck"></i>
     <h1>배송조회</h1>
+
+    <v-container fluid>
+      <v-row align="center">
+        <v-col cols="2">
+          <v-select
+            v-model="e1"
+            :items="states"
+            menu-props="auto"
+            label="Select"
+            hide-details
+            single-line
+          ></v-select>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
