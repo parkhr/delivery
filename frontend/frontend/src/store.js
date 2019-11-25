@@ -6,6 +6,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   // counter 라는 state 속성을 추가
   state: {
+    SERVER_URL: "http://localhost:5000",
+
     carriers: [
       '택배사 선택', 'DHL', '천일택배', 'CJ대한통운', 'CU 편의점택배','GS Postbox 택배','CWAY (Woori Express)','대신택배','우체국 택배',
       '한의사랑택배', '한진택배', '합동택배', '홈픽', '한서호남택배', '일양로지스', '경동택배', '건영택배', '로젠택배', '롯데택배', 'SLX',
@@ -38,7 +40,6 @@ export const store = new Vuex.Store({
       'Fedex' : 'us.fedex',
       'UPS' : 'us.ups',
       'USPS' : 'us.usps'
-
     }
   },
 

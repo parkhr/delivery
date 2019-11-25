@@ -16,12 +16,17 @@
               <v-text-field v-model="deliveryNumber" :counter="30" label="운송장 번호를 입력하세요."></v-text-field>
             </v-col>
           </v-row>
+
+          <div>
+            <v-btn text small @click="search()">조회하기</v-btn>
+          </div>
       </v-layout>
     </v-container>
   </div>
 </template>
 
 <script>
+  import Server from "../server.js"
   export default {
     name: 'Header',
     data () {
@@ -30,6 +35,19 @@
         deliveryNumber: ''
       }
     },
+    methods:{
+      search(){
+        let formData = new FormData()
+        formData.append("key", value);
+        Server(this.$store.state.SERVER_URL).post("/search", form).then(res => {
+          console.log(JSON.stringify(res.data))
+        }).catch(error => {
+
+        }).then(()=>{
+
+        })
+      }
+    }
   }
 </script>
 
