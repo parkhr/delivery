@@ -1,7 +1,12 @@
 <template>
   <v-app>
     <v-content>
-      <Header/>
+      <v-container fluid>
+        <Header/>
+        <br/>
+        <br/>
+        <router-view></router-view>
+      </v-container>
     </v-content>
   </v-app>
 </template>
