@@ -37,12 +37,11 @@
     },
     methods:{
       search(){
-        let formData = new FormData()
-        formData.append("key", value);
-        Server(this.$store.state.SERVER_URL).post("/search", form).then(res => {
+        let carrierCode = this.$store.state.carriersObject[this.carrier]
+        Server(this.$store.state.SERVER_URL).get("/search/" + carrierCode + "/" + this.deliveryNumber).then(res => {
           console.log(JSON.stringify(res.data))
         }).catch(error => {
-
+          console.log(error)
         }).then(()=>{
 
         })
