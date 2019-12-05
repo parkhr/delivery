@@ -20,6 +20,12 @@
           <div>
             <v-btn text small @click="search()">조회하기</v-btn>
           </div>
+
+          {{from.name}}<br/>
+          {{to.name}}<br/>
+          {{state.text}}<br/>
+          
+          <div v-for = "item in progresses" v-bind:key="item">{{item.location.name}} {{item.status.text}} {{item.description}} {{item.time}}</div>
       </v-layout>
     </v-container>
   </div>
@@ -32,18 +38,27 @@
     data () {
       return {
         carrier: '택배사 선택',
-        deliveryNumber: ''
+        deliveryNumber: '',
+        from: '',
+        to: '',
+        state: '',
+        progresses: []
       }
     },
     methods:{
       search(){
         let carrierCode = this.$store.state.carriersObject[this.carrier]
         Server(this.$store.state.SERVER_URL).get("/search/" + carrierCode + "/" + this.deliveryNumber).then(res => {
-          console.log(JSON.stringify(res.data))
+          var a = res.data
+          this.from = a.from
+          this.to = a.to
+          this.state = a.state
+
+          for (var index in a.progresses) {
+            this.progresses.push(a.progresses[index])
+          }
         }).catch(error => {
           console.log(error)
-        }).then(()=>{
-
         })
       }
     }
