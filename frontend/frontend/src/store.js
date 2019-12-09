@@ -7,6 +7,11 @@ export const store = new Vuex.Store({
   // counter 라는 state 속성을 추가
   state: {
     SERVER_URL: "http://localhost:5000",
+    from: '',
+    to: '',
+    state: '',
+    progresses: [],
+    message: '',
 
     carriers: [
       '택배사 선택', 'DHL', '천일택배', 'CJ대한통운', 'CU 편의점택배','GS Postbox 택배','CWAY (Woori Express)','대신택배','우체국 택배',
@@ -48,7 +53,22 @@ export const store = new Vuex.Store({
   },
 
   mutations: {
-
+    from(state, from){
+      state.from = from
+    },
+    to(state, to){
+      state.to = to
+    },
+    state(state, changeState){
+      state.state = changeState
+    },
+    progresses(state, progresses){
+      state.progresses = []
+      state.progresses.push(progresses)
+    },
+    message(state, message){
+      state.message = message
+    }
   },
 
   actions : {
