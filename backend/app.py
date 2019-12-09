@@ -15,7 +15,7 @@ cors = CORS(app, resources={
 def delivery_search(carrier_code, delivery_number):
     request_url = 'https://apis.tracker.delivery/carriers/' + carrier_code + '/tracks/' + delivery_number
     response = requests.get(request_url).json()
-
+    print(response)
     return response
 
 

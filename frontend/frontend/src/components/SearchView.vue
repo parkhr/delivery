@@ -1,11 +1,16 @@
 <template>
   <div>
     <v-layout class='layout' column>
-      {{this.from}}
-      {{this.to}}
-      {{this.state}}
-      {{this.progresses}}
-      
+      보내는 분 : {{this.from.name}}<br/><br/>
+      받는 분 : {{this.to.name}}<br/><br/>
+      상태 : {{this.state.text}}<br/><br/>
+      <template v-for="item in this.progresses">
+        {{item.description}}
+        {{item.location.name}}
+        {{item.status.text}}
+        {{item.time}}
+      </template>
+
     </v-layout>
   </div>
 </template>
