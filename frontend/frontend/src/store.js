@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   // counter 라는 state 속성을 추가
   state: {
-    SERVER_URL: "http://localhost:5000",
+    SERVER_URL: "http://54.180.106.135:5000",
     from: '',
     to: '',
     state: '',
